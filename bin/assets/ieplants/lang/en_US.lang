@@ -1,0 +1,7 @@
+﻿#en_US
+#This is the Main language configuration file
+#========
+#= TerraFirmaPumpkins =
+#========
+item.hempFiber.name=Industrial Hemp Fiber
+item.Seeds IE_Hemp.name=Industrial Hemp Seeds
