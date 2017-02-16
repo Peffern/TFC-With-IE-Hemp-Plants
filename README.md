@@ -1,6 +1,6 @@
-TFC Template Mod
+TFC With IE Hemp Plants
 ================
 
-For use within the TerraFirmaCraft v79 mod for Minecraft.
+For TFC 0.79.29 and IE 0.7.7
 
-This mod adds additional functionality to the TerraFirmaCraft mod.
+This is a test of the TFC Crop Index API mod that implements IE Industrial Hemp as a TFC Crop using a custom renderer. 
