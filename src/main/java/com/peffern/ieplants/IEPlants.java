@@ -46,9 +46,6 @@ public class IEPlants
 	/** We need our own hemp seed item since tfccrops will generate one */
 	static Item hempSeeds;
 	
-	/** We need our own hemp fiber item since you can't specify metadata to TFC crop output */
-	static Item hempFiber;
-	
 	/** Mod ID String */
 	public static final String MODID = "ieplants";
 	
@@ -63,24 +60,13 @@ public class IEPlants
 	 */
 	@EventHandler
 	public void init(FMLInitializationEvent e)
-	{
-		hempFiber = new ItemTerra()
-		{
-			@Override
-			public void registerIcons(IIconRegister register)
-			{
-				this.itemIcon = register.registerIcon(ImmersiveEngineering.MODID + ":" + "material_hempFiber");
-			}
-		}.setUnlocalizedName("hempFiber");
-		
-		GameRegistry.registerItem(hempFiber, hempFiber.getUnlocalizedName());
-		
+	{		
 		String[] iconNames = new String[6];
 		for(int i = 1; i < iconNames.length+1; i++)
 		{
 			iconNames[i-1] = IEPlants.MODID + ":" + "Hemp (" + i + ")";
 		}
-		ICrop p = new BaseCrop("hemp", 1, 28, iconNames, 10, 5, 1.0f, hempFiber, 4, "seedsHemp", com.bioxx.tfc.Reference.MOD_ID + ":" + "food/unused/img141", "Seeds IE_Hemp")
+		ICrop p = new BaseCrop("hemp", 1, 28, iconNames, 10, 5, 1.0f, new ItemStack(IEContent.itemMaterial,4,3), "seedsHemp", com.bioxx.tfc.Reference.MOD_ID + ":" + "food/unused/img141", "Seeds IE_Hemp")
 		{
 			@Override
 			public boolean render(Block block, int x, int y, int z, RenderBlocks renderblocks)
@@ -91,8 +77,6 @@ public class IEPlants
 			}
 		};
 		hempSeeds = CropsRegistry.addCrop(p);
-		//OreDictionary.registerOre("fiberHemp", new ItemStack(IEContent.itemMaterial,1,3));
-		OreDictionary.registerOre("fiberHemp", new ItemStack(hempFiber,1));
 	
 		//I just realized that IE 0.7.7 doesn't use hempFiber in the oreDict
 		/*IERecipes.addShapelessOredictRecipe(new ItemStack(Items.string), "fiberHemp","fiberHemp","fiberHemp");
