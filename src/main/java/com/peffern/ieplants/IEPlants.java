@@ -1,36 +1,19 @@
 package com.peffern.ieplants;
 
 
-import java.lang.reflect.Field;
-
-import javax.swing.JOptionPane;
-
-import com.bioxx.tfc.Blocks.BlockCrop;
-import com.bioxx.tfc.Food.CropIndexJute;
-import com.bioxx.tfc.Items.ItemTerra;
-import com.bioxx.tfc.api.TFCBlocks;
-import com.bioxx.tfc.api.TFCItems;
 import com.peffern.crops.BaseCrop;
 import com.peffern.crops.CropsRegistry;
 import com.peffern.crops.ICrop;
 import com.peffern.crops.RenderCustomCrop;
 
-import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.common.IEContent;
-import blusunrize.immersiveengineering.common.IERecipes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraftforge.oredict.OreDictionary;
-import blusunrize.immersiveengineering.common.blocks.stone.*;
 
 
 
