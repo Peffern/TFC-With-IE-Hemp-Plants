@@ -43,7 +43,6 @@ public class IEPlants
 	public void init(FMLInitializationEvent e)
 	{		
 		Item mat = (Item)GameData.getItemRegistry().getObject("ImmersiveEngineering:material");
-		JOptionPane.showMessageDialog(null, mat);
 		//we use our own icons since the IE ones are too small (16x16), need 32x32
 		String[] iconNames = new String[6];
 		for(int i = 0; i < iconNames.length-1; i++)

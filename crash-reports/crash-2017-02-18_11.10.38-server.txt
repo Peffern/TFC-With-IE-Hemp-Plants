@@ -1,0 +1,157 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 2/18/17 11:10 AM
+Description: Exception getting block type in world
+
+java.lang.NullPointerException: Exception getting block type in world
+	at com.bioxx.tfc.Core.TFC_Climate.isSwamp(TFC_Climate.java:427)
+	at com.bioxx.tfc.WorldGen.TFCChunkProviderGenerate.getCreatureSpawnsByChunk(TFCChunkProviderGenerate.java:326)
+	at com.bioxx.tfc.WorldGen.SpawnerAnimalsTFC.performWorldGenSpawning(SpawnerAnimalsTFC.java:54)
+	at com.bioxx.tfc.WorldGen.TFCChunkProviderGenerate.populate(TFCChunkProviderGenerate.java:232)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:313)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1147)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+	at net.minecraft.world.World.getBlock(World.java:387)
+	at com.bioxx.tfc.WorldGen.Generators.Trees.WorldGenCustomCedarTrees.generate(WorldGenCustomCedarTrees.java:43)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generateForest(WorldGenForests.java:133)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generate(WorldGenForests.java:62)
+	at cpw.mods.fml.common.registry.GameRegistry.generateWorld(GameRegistry.java:112)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:314)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1147)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+	at net.minecraft.world.World.getBlock(World.java:387)
+	at com.bioxx.tfc.WorldGen.Generators.Trees.WorldGenPineShort.generate(WorldGenPineShort.java:54)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generateForest(WorldGenForests.java:125)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generate(WorldGenForests.java:62)
+	at cpw.mods.fml.common.registry.GameRegistry.generateWorld(GameRegistry.java:112)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:314)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1152)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+	at net.minecraft.world.WorldServer.func_147456_g(WorldServer.java:330)
+	at net.minecraft.world.WorldServer.tick(WorldServer.java:191)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:692)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.bioxx.tfc.Core.TFC_Climate.isSwamp(TFC_Climate.java:427)
+	at com.bioxx.tfc.WorldGen.TFCChunkProviderGenerate.getCreatureSpawnsByChunk(TFCChunkProviderGenerate.java:326)
+	at com.bioxx.tfc.WorldGen.SpawnerAnimalsTFC.performWorldGenSpawning(SpawnerAnimalsTFC.java:54)
+	at com.bioxx.tfc.WorldGen.TFCChunkProviderGenerate.populate(TFCChunkProviderGenerate.java:232)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:313)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1147)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+
+-- Requested block coordinates --
+Details:
+	Found chunk: true
+	Location: World: (5775,162,-8640), Chunk: (at 15,10,0 in 360,-540; contains blocks 5760,0,-8640 to 5775,255,-8625), Region: (11,-17; contains chunks 352,-544 to 383,-513, blocks 5632,0,-8704 to 6143,255,-8193)
+Stacktrace:
+	at net.minecraft.world.World.getBlock(World.java:387)
+	at com.bioxx.tfc.WorldGen.Generators.Trees.WorldGenCustomCedarTrees.generate(WorldGenCustomCedarTrees.java:43)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generateForest(WorldGenForests.java:133)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generate(WorldGenForests.java:62)
+	at cpw.mods.fml.common.registry.GameRegistry.generateWorld(GameRegistry.java:112)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:314)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1147)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+
+-- Requested block coordinates --
+Details:
+	Found chunk: true
+	Location: World: (5792,160,-8625), Chunk: (at 0,10,15 in 362,-540; contains blocks 5792,0,-8640 to 5807,255,-8625), Region: (11,-17; contains chunks 352,-544 to 383,-513, blocks 5632,0,-8704 to 6143,255,-8193)
+Stacktrace:
+	at net.minecraft.world.World.getBlock(World.java:387)
+	at com.bioxx.tfc.WorldGen.Generators.Trees.WorldGenPineShort.generate(WorldGenPineShort.java:54)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generateForest(WorldGenForests.java:125)
+	at com.bioxx.tfc.WorldGen.Generators.WorldGenForests.generate(WorldGenForests.java:62)
+	at cpw.mods.fml.common.registry.GameRegistry.generateWorld(GameRegistry.java:112)
+	at net.minecraft.world.gen.ChunkProviderServer.populate(ChunkProviderServer.java:314)
+	at net.minecraft.world.chunk.Chunk.populateChunk(Chunk.java:1152)
+	at net.minecraft.world.gen.ChunkProviderServer.originalLoadChunk(ChunkProviderServer.java:208)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:149)
+	at net.minecraft.world.gen.ChunkProviderServer.loadChunk(ChunkProviderServer.java:119)
+	at net.minecraft.world.gen.ChunkProviderServer.provideChunk(ChunkProviderServer.java:221)
+	at net.minecraft.world.World.getChunkFromChunkCoords(World.java:482)
+	at net.minecraft.world.WorldServer.func_147456_g(WorldServer.java:330)
+	at net.minecraft.world.WorldServer.tick(WorldServer.java:191)
+
+-- Affected level --
+Details:
+	Level name: ASM test
+	All players: 1 total; [EntityPlayerMP['Player829'/16487, l='ASM test', x=5665.50, y=144.50, z=-8429.50]]
+	Chunk stats: ServerChunkCache: 1458 Drop: 577
+	Level seed: -7984232532990157993
+	Level generator: ID 00 - TFCDefault, ver 0. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (5056,148,-11540), Chunk: (at 0,9,12 in 316,-722; contains blocks 5056,0,-11552 to 5071,255,-11537), Region: (9,-23; contains chunks 288,-736 to 319,-705, blocks 4608,0,-11776 to 5119,255,-11265)
+	Level time: 578078 game time, 578078 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 154084 (now: false), thunder time: 118707 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:692)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Mac OS X (x86_64) version 10.10.5
+	Java Version: 1.8.0_91, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 530786008 bytes (506 MB) / 1517813760 bytes (1447 MB) up to 1908932608 bytes (1820 MB)
+	JVM Flags: 0 total; 
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 17
+	FML: MCP v9.05 FML v7.10.99.99 Minecraft Forge 10.13.4.1558 12 mods loaded, 12 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAAAAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAAAAAAA	FML{7.10.99.99} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAAAAAAA	Forge{10.13.4.1558} [Minecraft Forge] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAAAAAAA	NotEnoughItems{1.0.4.95} [Not Enough Items] (NotEnoughItems-1.7.10-1.0.4.95-dev.jar) 
+	UCHIJAAAAAAAAA	tfc_coremod{0.79.29} [TFC[coremod]] (minecraft.jar) 
+	UCHIJAAAAAAAAA	CodeChickenCore{1.0.4.35} [CodeChicken Core] (minecraft.jar) 
+	UCHIJAAAAAAAAA	ImmersiveEngineering{0.7.7} [Immersive Engineering] (ImmersiveEngineering-0.7.7-deobf.jar) 
+	UCHIJAAAAAAAAA	ieplants{1.2} [IE Plants] (bin) 
+	UCHIJAAAAAAAAA	Waila{1.5.11} [Waila] (Waila-1.5.11-RC2-NONEI_1.7.10.jar) 
+	UCHIJAAAAAAAAA	terrafirmacraft{0.79.29} [TerraFirmaCraft] (bin) 
+	UCHIJAAAAAAAAA	TerraFirmaPumpkins{2.1} [TerraFirmaPumpkins] (bin) 
+	UCHIJAAAAAAAAA	tfccrops{1.1} [TFC Crop Index] (bin) 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['Player829'/16487, l='ASM test', x=5665.50, y=144.50, z=-8429.50]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
