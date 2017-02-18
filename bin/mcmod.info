@@ -13,8 +13,8 @@
         "logoFile": "",
         "screenshots": [],
         "parent": "",
-        "requiredMods": [  ],
-        "dependencies": [  ],
+        "requiredMods": [ "ImmersiveEngineering" ],
+        "dependencies": [ "ImmersiveEngineering" ],
         "dependants": [  ],
         "useDependencyInformation": "true"
     }]

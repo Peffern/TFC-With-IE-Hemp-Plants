@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
  * @author peffern
  *
  */
-@Mod(modid = IEPlants.MODID, name = IEPlants.MODNAME, version = IEPlants.VERSION, dependencies = "after:terrafirmacraft;after:ImmersiveEngineering")
+@Mod(modid = IEPlants.MODID, name = IEPlants.MODNAME, version = IEPlants.VERSION, dependencies = "required-after:terrafirmacraft;required-after:ImmersiveEngineering")
 public class IEPlants 
 {
 	/** We need our own hemp seed item since tfccrops will generate one */
@@ -34,7 +34,7 @@ public class IEPlants
 	public static final String MODNAME = "IE Plants";
 	
 	/** Mod Version */
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "1.2";
 	
 	/**
 	 * Do all the main mod setup
