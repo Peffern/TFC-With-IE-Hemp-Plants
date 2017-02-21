@@ -1,8 +1,6 @@
 package com.peffern.ieplants;
 
 
-import javax.swing.JOptionPane;
-
 import com.peffern.crops.CropsRegistry;
 import com.peffern.crops.ICrop;
 import blusunrize.immersiveengineering.ImmersiveEngineering;
