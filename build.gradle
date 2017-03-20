@@ -80,10 +80,7 @@ tasks.build.dependsOn('sourceJar', 'deobfJar')
 
 jar 
 {
-    manifest 
-    {
-        attributes 'FMLCorePlugin': 'com.peffern.pumpkins.asm.PumpkinsLoadingPlugin', 'FMLCorePluginContainsFMLMod': 'true'
-    }
+   
 } 
 
 dependencies {
