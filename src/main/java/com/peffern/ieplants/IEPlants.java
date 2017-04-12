@@ -1,6 +1,7 @@
 package com.peffern.ieplants;
 
 
+import com.bioxx.tfc.TerraFirmaCraft;
 import com.peffern.crops.CropsRegistry;
 import com.peffern.crops.ICrop;
 import blusunrize.immersiveengineering.ImmersiveEngineering;
@@ -32,7 +33,7 @@ public class IEPlants
 	public static final String MODNAME = "IE Plants";
 	
 	/** Mod Version */
-	public static final String VERSION = "1.3";
+	public static final String VERSION = "1.4";
 	
 	/**
 	 * Do all the main mod setup
@@ -40,7 +41,7 @@ public class IEPlants
 	@EventHandler
 	public void init(FMLInitializationEvent e)
 	{		
-		Item mat = (Item)GameData.getItemRegistry().getObject("ImmersiveEngineering:material");
+		final Item mat = (Item)GameData.getItemRegistry().getObject("ImmersiveEngineering:material");
 		//we use our own icons since the IE ones are too small (16x16), need 32x32
 		String[] iconNames = new String[6];
 		for(int i = 0; i < iconNames.length-1; i++)
@@ -49,7 +50,30 @@ public class IEPlants
 		}
 		iconNames[iconNames.length-1] = iconNames[iconNames.length-2];
 		//TFC Crops crop generation - use custom crop implementation to handle special rendering
-		ICrop p = new HempCrop("hemp", 1, 28, iconNames, 10, 5, 1.0f, new ItemStack(mat,4,3), "seedsHemp", com.bioxx.tfc.Reference.MOD_ID + ":" + "food/unused/img141", "Seeds IE_Hemp");
+		ICrop p = new HempCrop("hemp", 1, 28, iconNames, 10, 5, 1.0f, null, "seedsHemp", com.bioxx.tfc.Reference.MOD_ID + ":" + "food/unused/img141", "Seeds IE_Hemp")
+		{
+			@Override
+			public ItemStack getOutput1()
+			{
+				//yield 4 to 6 hemp fibers
+				int stack = 4;
+				if(TerraFirmaCraft.proxy.getCurrentWorld() != null)
+					stack += TerraFirmaCraft.proxy.getCurrentWorld().rand.nextInt(3);
+				return new ItemStack(mat,stack,3);
+			}
+			
+			@Override
+			public ItemStack getOutput2()
+			{
+				//yield 1 to 3 seeds as bonus drops
+				int stack = 1;
+				if(TerraFirmaCraft.proxy.getCurrentWorld() != null)
+					stack += TerraFirmaCraft.proxy.getCurrentWorld().rand.nextInt(3);
+				return new ItemStack(hempSeeds, stack);
+			}
+			
+		};
+		
 		//register
 		hempSeeds = CropsRegistry.addCrop(p);
 	}
