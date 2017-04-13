@@ -1,0 +1,7 @@
+#de_DE
+#This is the German language configuration file
+#========
+#= TerraFirmaPumpkins =
+#========
+item.hempFiber.name=Industriehanf-Fasern
+item.Seeds IE_Hemp.name=Industriehanf-Samen
