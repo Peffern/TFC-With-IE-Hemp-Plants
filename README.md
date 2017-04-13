@@ -12,6 +12,6 @@ If you are using this mod with TechNodeFirmaCraft, you will need to make the fol
 
 Look in scripts/ImmersiveEngineering.zs for the line which reads "mods.immersiveengineering.Squeezer.addRecipe(null, &lt;liquid:plantoil&gt; * 40, &lt;ImmersiveEngineering:seed&gt;, 80);" which should be on line 551, in the Squeezer section.
 
-Add below it another line which reads "mods.immersiveengineering.Squeezer.addRecipe(null, &lt;liquid:plantoil&gt; * 40, &lt;ImmersiveEngineering:seed&gt;, 80);"
+Add below it another line which reads "mods.immersiveengineering.Squeezer.addRecipe(null, &lt;liquid:plantoil&gt; * 40, &lt;ieplants:item.Seeds IE_Hemp&gt;, 80);"
 
 That will allow you to use the Industrial Squeezer.
