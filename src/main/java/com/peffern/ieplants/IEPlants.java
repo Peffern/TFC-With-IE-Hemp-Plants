@@ -1,13 +1,18 @@
 package com.peffern.ieplants;
 
 
+import javax.swing.JOptionPane;
+
 import com.bioxx.tfc.TerraFirmaCraft;
 import com.peffern.crops.CropsRegistry;
 import com.peffern.crops.ICrop;
 import blusunrize.immersiveengineering.ImmersiveEngineering;
+import blusunrize.immersiveengineering.api.energy.DieselHandler;
+import blusunrize.immersiveengineering.common.IEContent;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,7 +25,7 @@ import net.minecraft.item.ItemStack;
  * @author peffern
  *
  */
-@Mod(modid = IEPlants.MODID, name = IEPlants.MODNAME, version = IEPlants.VERSION, dependencies = "required-after:terrafirmacraft;required-after:ImmersiveEngineering")
+@Mod(modid = IEPlants.MODID, name = IEPlants.MODNAME, version = IEPlants.VERSION, dependencies = "required-after:terrafirmacraft;required-before:ImmersiveEngineering")
 public class IEPlants 
 {
 	/** We need our own hemp seed item since tfccrops will generate one */
@@ -76,5 +81,8 @@ public class IEPlants
 		
 		//register
 		hempSeeds = CropsRegistry.addCrop(p);
+		Item ie_hemp_seeds = IEContent.itemSeeds;
+		DieselHandler.SqueezerRecipe oldRecipe = DieselHandler.findSqueezerRecipe(new ItemStack(ie_hemp_seeds));
+		DieselHandler.addSqueezerRecipe(hempSeeds, oldRecipe.time, oldRecipe.fluid, oldRecipe.output);
 	}
 }
