@@ -40,6 +40,8 @@ public class IEPlants
 	/** Mod Version */
 	public static final String VERSION = "1.4";
 	
+	static boolean initComplete = false;
+	
 	/**
 	 * Do all the main mod setup
 	 */
@@ -62,7 +64,7 @@ public class IEPlants
 			{
 				//yield 4 to 6 hemp fibers
 				int stack = 4;
-				if(TerraFirmaCraft.proxy.getCurrentWorld() != null)
+				if(IEPlants.isInitComplete()) //prevent server from calling the rand during setup before the world exists
 					stack += TerraFirmaCraft.proxy.getCurrentWorld().rand.nextInt(3);
 				return new ItemStack(mat,stack,3);
 			}
@@ -72,7 +74,7 @@ public class IEPlants
 			{
 				//yield 1 to 3 seeds as bonus drops
 				int stack = 1;
-				if(TerraFirmaCraft.proxy.getCurrentWorld() != null)
+				if(IEPlants.isInitComplete()) //prevent server from calling the rand during setup before the world exists
 					stack += TerraFirmaCraft.proxy.getCurrentWorld().rand.nextInt(3);
 				return new ItemStack(hempSeeds, stack);
 			}
@@ -84,5 +86,12 @@ public class IEPlants
 		Item ie_hemp_seeds = IEContent.itemSeeds;
 		DieselHandler.SqueezerRecipe oldRecipe = DieselHandler.findSqueezerRecipe(new ItemStack(ie_hemp_seeds));
 		DieselHandler.addSqueezerRecipe(hempSeeds, oldRecipe.time, oldRecipe.fluid, oldRecipe.output);
+	
+		initComplete = true;
+	}
+	
+	public static boolean isInitComplete()
+	{
+		return initComplete;
 	}
 }
